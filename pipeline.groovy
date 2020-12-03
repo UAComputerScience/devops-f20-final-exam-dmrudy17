@@ -17,7 +17,7 @@ pipeline {
                 cmakeBuild buildDir: 'build', cmakeArgs: '-D LINK_STATIC=OFF', generator: 'Ninja', installation: 'cmake'
             }
         }
-        stage('Build') {
+        stage('Build Generation') {
             steps {
                 sh 'cd build; ninja'
             }
