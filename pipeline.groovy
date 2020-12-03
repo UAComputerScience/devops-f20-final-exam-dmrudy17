@@ -22,5 +22,15 @@ pipeline {
                 sh 'cd build; ninja'
             }
         }
+        stage('Test') {
+            steps {
+                ctest installation: 'cmake', workingDir: 'build'
+            }
+        }
+        stage('Package') {
+            steps {
+                cpack arguments: '-G DEB', installation: 'cmake', workingDir: 'build'
+            }
+        }
     }
 }
