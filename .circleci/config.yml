@@ -14,3 +14,5 @@ jobs:
       - run: cd build && ctest && cpack -G DEB
       - store_artifacts:
           path: build/markturn-1.0.0-Linux.deb
+      - store_test_results:
+          path: test-results
