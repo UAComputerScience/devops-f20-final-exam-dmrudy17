@@ -7,3 +7,7 @@ jobs:
       - image: drudy/markturn_ubuntu20.04
     steps:
       - checkout
+      - run: apt update
+      - run: mkdir build
+      - run: cd build && cmake -DLINK_STATIC=OFF -DCMAKE_BUILD_TYPE=Release .. -G Ninja
+      - run: cd build && ninja && ninja install && ldconfig
