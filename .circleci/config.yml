@@ -6,12 +6,6 @@ jobs:
     docker:
       - image: drudy/markturn_ubuntu20.04
     steps:
-      - run:
-          name: "Greeting"
-          command: echo Hello $CIRCLE_USERNAME
-      - run:
-          name: "Branch"
-          command: echo $CIRCLE_BRANCH
       - checkout
       - run: apt update
       - run: mkdir build
@@ -20,5 +14,3 @@ jobs:
       - run: cd build && ctest && cpack -G DEB
       - store_artifacts:
           path: build/markturn-1.0.0-Linux.deb
-      - store_test_results:
-          path: test-results
